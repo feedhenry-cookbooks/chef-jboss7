@@ -30,6 +30,16 @@
         <extension module="org.jboss.as.webservices"/>
         <extension module="org.jboss.as.weld"/>
     </extensions>
+    <system-properties>
+      <property name="aerogear.android.batchSize" value="<%= node['aerogear']['android']['batchSize'] -%>"/>
+      <property name="aerogear.android.batchesToLoad" value="<%= node['aerogear']['android']['batchesToLoad'] -%>"/>
+      <property name="aerogear.ios.batchSize" value="<%= node['aerogear']['ios']['batchSize'] -%>"/>
+      <property name="aerogear.ios.batchesToLoad" value="<%= node['aerogear']['ios']['batchesToLoad'] -%>"/>
+      <property name="aerogear.windows_wns.batchSize" value="<%= node['aerogear']['windows_wns']['batchSize'] -%>"/>
+      <property name="aerogear.windows_wns.batchesToLoad" value="<%= node['aerogear']['windows_wns']['batchesToLoad'] -%>"/>
+      <property name="aerogear.windows_mpns.batchSize" value="<%= node['aerogear']['windows_mpns']['batchSize'] -%>"/>
+      <property name="aerogear.windows_mpns.batchesToLoad" value="<%= node['aerogear']['windows_mpns']['batchesToLoad'] -%>"/>
+    </system-properties>
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">

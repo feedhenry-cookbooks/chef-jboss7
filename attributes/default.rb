@@ -19,3 +19,12 @@ default['jboss7']['mgmt_bind_addr'] = '0.0.0.0'
 default['jboss7']['unsecure_bind_addr'] = '0.0.0.0'
 default['jboss7']['admin_user'] = 'Administrator'
 default['jboss7']['admin_pass'] = 'eca67a3c9e0186b165aa4af13576de7a'
+
+default['aerogear']['android']['batchSize'] = 1000
+default['aerogear']['android']['batchesToLoad'] = 10
+default['aerogear']['ios']['batchSize'] = 2000
+default['aerogear']['ios']['batchesToLoad'] = 3
+default['aerogear']['windows_wns']['batchSize'] = 1000
+default['aerogear']['windows_wns']['batchesToLoad'] = 10
+default['aerogear']['windows_mpns']['batchSize'] = 1000
+default['aerogear']['windows_mpns']['batchesToLoad'] = 10
