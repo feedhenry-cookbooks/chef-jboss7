@@ -36,7 +36,7 @@ fi
 export JBOSS_HOME
 
 if [ -z "$JBOSS_USER" ]; then
-  JBOSS_USER="<%= node['jboss7']['jboss_user'] -%>" 
+  JBOSS_USER="<%= node['jboss7']['jboss_user'] -%>"
 fi
 export JBOSS_USER
 
@@ -58,7 +58,7 @@ fi
 export LAUNCH_JBOSS_IN_BACKGROUND
 
 if [ -z "$STARTUP_WAIT" ]; then
-  STARTUP_WAIT=120
+  STARTUP_WAIT=240
 fi
 
 if [ -z "$SHUTDOWN_WAIT" ]; then
@@ -156,7 +156,10 @@ case "$1" in
       stop
       ;;
   restart)
-      $0 stop
+      if [ -f "$JBOSS_PIDFILE" ]; then
+          $0 stop
+          sleep 1
+      fi
       $0 start
       ;;
   status)
@@ -168,4 +171,3 @@ case "$1" in
       exit 1
       ;;
 esac
-
