@@ -156,10 +156,7 @@ case "$1" in
       stop
       ;;
   restart)
-      if [ -f "$JBOSS_PIDFILE" ]; then
-          $0 stop
-          sleep 1
-      fi
+      $0 stop
       $0 start
       ;;
   status)
