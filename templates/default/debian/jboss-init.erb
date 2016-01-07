@@ -75,6 +75,16 @@ MATCHING_ARGS=(--user "$JBOSS_USER" --pidfile "$JBOSS_PIDFILE")
 
 start() {
   log_daemon_msg "Starting $NAME"
+
+  ## when jboss is running, print PID and exit 0
+  if [ -f $JBOSS_PIDFILE ]; then
+    read ppid < $JBOSS_PIDFILE
+    if [ `ps --pid $ppid 2> /dev/null | grep -c $ppid 2> /dev/null` -eq '1' ]; then
+      echo "$prog is running (pid $ppid)"
+      return 0
+    fi
+  fi
+
   id $JBOSS_USER > /dev/null 2>&1
   if [ $? -ne 0 -o -z "$JBOSS_USER" ]; then
     log_failure_msg "User $JBOSS_USER does not exist..."
