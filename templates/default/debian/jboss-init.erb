@@ -139,8 +139,7 @@ stop() {
     END_STATUS=$?
     rm -f $JBOSS_PIDFILE
   else
-    start-stop-daemon --start --quiet --background --chuid jboss7 --exec ${JBOSS_HOME}/bin/jboss-cli.sh -- --connect command=:shutdown
-    END_STATUS=$?
+    echo "(not running)" 
   fi
   log_end_msg $END_STATUS
   return $END_STATUS
